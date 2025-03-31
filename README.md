@@ -1,36 +1,65 @@
 # Task Manager Application
 
-This repository contains a simple Task Manager application built using React and SCSS. The project demonstrates several best practices in code organization, modularity, and styling conventions to create a maintainable and scalable codebase.
+This repository contains a full-stack Task Manager application organized as a monorepo. The project demonstrates a modern, scalable approach to building web applications using React, SCSS, and FastAPI with SQLite. It follows best practices in code organization, styling, and API design.
 
-## Best Practices and Rules Followed
+---
 
-### Separation of Concerns
-- **Centralized API Calls:**  
-  All network requests are moved to `apiUtils.js`, isolating API logic from UI components. This reduces duplication and improves maintainability.
+## Project Overview
 
-### React Best Practices
-- **Functional Components & Hooks:**  
-  The project uses functional components along with React hooks (`useState`, `useEffect`) for state and lifecycle management.
-- **Async/Await Usage:**  
-  Asynchronous logic is handled with async/await to improve readability and simplify error handling.
-- **Routing & Navigation:**  
-  React Router is used to handle client-side navigation, keeping the app modular and the UI responsive.
-- **Inline Comments:**  
-  Each component includes clear, human-friendly inline comments explaining critical sections of the code.
+The Task Manager application allows users to create, update, and manage tasks along with collaborating via comments. The application is built with a clean and modern UI inspired by Atlassian products, featuring responsive design and subtle animations. The frontend is developed in React with SCSS for styling, while the backend is built using FastAPI in Python.
 
-### SCSS and Styling
-- **BEM Naming Conventions:**  
-  CSS classes are organized using the BEM (Block, Element, Modifier) methodology to ensure modular and easily maintainable styles.
-- **Centralized Styling:**  
-  Common styling properties like colors, typography, and spacing are stored in shared partials (`_variables.scss` and `_mixins.scss`). This helps keep the design consistent and makes global changes easier.
-- **Reusable Mixins:**  
-  Mixins for transitions and box shadows are used to avoid repetition and to ensure consistency across components.
+
+This setup allows you to run both parts of the application concurrently using a single command.
+
+---
+
+
+## Tech Stack
+
+### Frontend
+- **Framework:** React (using Vite for fast builds)
+- **Styling:** SCSS with a modern, fluid design inspired by Atlassian's UI
+- **Routing:** React Router for client-side navigation
+- **UI Components:** Custom components with smooth transitions and responsive design
+- **Font:** Roboto (loaded via Google Fonts)
+
+### Backend
+- **Framework:** FastAPI for building a high-performance API
+- **Database:** SQLite for data persistence
+- **CORS:** Configured via FastAPI's CORSMiddleware to allow cross-origin requests
+- **Deployment:** The backend runs with Uvicorn on port 5001 within a Python virtual environment
+
+## How It Works
+
+- **User Sign In:**  
+  When a user opens the app, if no session is found, a sign-in screen is displayed with a dropdown to select one of the predefined users. The selected user is stored in session storage and used throughout the app.
+
+- **Task Management:**  
+  Users can create new tasks and update task details inline. Tasks display key details such as title, priority, status, and assignee.
+
+- **Comments & Collaboration:**  
+  Each task detail page features a comments section that allows users to collaborate in real time. New comments are added at the top, and existing comments are displayed in reverse chronological order.
+
+- **Real-Time Updates:**  
+  Changes to task details update immediately without requiring a manual save, providing an inline-editing experience.
+
+## Best Practices and Principles
 
 ### Code Organization
-- **Component-Specific SCSS:**  
-  Each React component has its own SCSS file that imports the shared styles, keeping component styling isolated yet consistent.
-- **Reusable UI Components:**  
-  Where applicable, patterns like modals and pills (for status and priority) were considered for reuse to minimize duplication.
+- **Monorepo:** Both frontend and backend codebases are managed within a single repository, simplifying development, dependency management, and deployment.
+- **Component-Based Architecture:** The React frontend is built using modular, reusable components, each with its own SCSS file for localized styling.
+- **Separation of Concerns:** API calls, UI logic, and styling are clearly separated to enhance maintainability and scalability.
+
+### Frontend Development
+- **Functional Components & Hooks:** Utilizes React’s functional components with hooks (`useState`, `useEffect`) for managing component state and side effects.
+- **Routing & Navigation:**  
+  React Router is used to handle client-side navigation, keeping the app modular and the UI responsive.
+- **BEM Naming Conventions:**  
+  CSS classes are organized using the BEM (Block, Element, Modifier) methodology to ensure modular and easily maintainable styles.
+### Backend Development
+- **FastAPI:** Provides a high-performance API with automatic interactive documentation.
+- **SQLite:** A lightweight database solution used for quick development and easy deployment.
+- **RESTful Endpoints:** The backend exposes endpoints for managing users, tasks, and comments with a consistent response structure.
 
 ## Limitations and Areas for Improvement
 
@@ -56,7 +85,42 @@ This repository contains a simple Task Manager application built using React and
 - **No Internationalization (i18n):**  
   The project does not currently support multiple languages.
 
+
+## Getting Started
+
+### Prerequisites
+- **Node.js & pnpm:** For managing the frontend code.
+- **Python 3.9+:** For running the FastAPI backend.
+- **Virtual Environment:** Create and activate a virtual environment in the backend directory.
+
+### Installation
+
+1. **Clone the Repository:**
+   ```bash
+   git clone <repository-url>
+   cd task-manager-app
+2. **Install Frontend Dependencies:**
+   ```bash
+   pnpm install
+3. **Install Backend Dependencies:**:
+    *Navigate to `packages/backend-fastapi` and set up your Python virtual environment*
+   ```bash
+   cd packages/backend-fastapi
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install fastapi uvicorn
+4. **Running the Application:**
+   ```bash
+   pnpm start
+
+This command uses concurrently to:
+
+- Run the FastAPI backend from packages/backend-fastapi using Uvicorn on port 5001 (via the virtual environment).
+
+- Run the React frontend in development mode.
+
+
+
 ## Conclusion
 
 This Task Manager application demonstrates a modular approach to building web applications by following modern React best practices and SCSS methodologies. By centralizing API calls, reusing common styles via shared SCSS partials, and using functional components with hooks, the project is designed to be scalable and maintainable. Although there are areas for further enhancement—such as global state management, testing, advanced error handling, and performance optimizations—this project provides a solid foundation and a clear demonstration of coding best practices.
-
