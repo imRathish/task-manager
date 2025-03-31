@@ -1,0 +1,46 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+/* Block: appbar */
+.appbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $atlassian-blue;
+  color: $white;
+  padding: $spacing-md $spacing-lg;
+  @include box-shadow();
+  @include transition(background-color 0.3s ease);
+
+  &__left {
+    font-size: $font-size-lg;
+    font-weight: 300;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__user-name {
+    font-size: $font-size-base;
+    opacity: 0.8;
+  }
+
+  &__signout-btn {
+    background: transparent;
+    border: 1px solid $white;
+    border-radius: 4px;
+    color: $white;
+    padding: $spacing-sm $spacing-md;
+    cursor: pointer;
+    font-size: $font-size-base;
+    @include transition(background-color 0.3s, color 0.3s);
+  }
+
+  &__signout-btn:hover {
+    background-color: $white;
+    color: $atlassian-blue;
+  }
+}

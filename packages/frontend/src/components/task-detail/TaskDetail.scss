@@ -1,0 +1,215 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+/* Block: task-detail */
+.task-detail {
+  padding: $spacing-lg;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: $white;
+
+  &__nav {
+    margin-bottom: $spacing-sm;
+
+    .task-detail__back-link {
+      color: $atlassian-blue;
+      text-decoration: none;
+      font-size: $font-size-base;
+      @include transition(color 0.3s);
+    }
+
+    .task-detail__back-link:hover {
+      color: $hover-blue;
+    }
+  }
+
+  &__main {
+    display: flex;
+    gap: $spacing-lg;
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
+  }
+
+  &__left {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: 500;
+    margin-bottom: $spacing-lg;
+    color: $grey-dark;
+  }
+
+  &__section {
+    border-radius: 4px;
+    padding: $spacing-md;
+    margin-bottom: $spacing-lg;
+    @include box-shadow(rgba(149, 157, 165, 0.2), 0, 8px, 24px);
+  }
+
+  &__section-title {
+    font-size: $font-size-lg;
+    margin-bottom: 0.75rem;
+    color: $grey-dark;
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+    padding: 0.75rem;
+    border: 1px solid $grey-light;
+    border-radius: 4px;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+  }
+
+  /* Comments Section */
+  &__new-comment-box {
+    margin-bottom: $spacing-md;
+  }
+
+  &__comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__new-comment-input {
+    font-size: $font-size-base;
+    border: 1px solid $grey-light;
+    border-radius: 4px;
+    padding: 0.75rem;
+    font-family: $font-family-base;
+  }
+
+  &__add-comment-btn {
+    width: 80px;
+    padding: 0.5rem;
+    background-color: $atlassian-blue;
+    color: $white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: $font-size-base;
+    @include transition(background-color 0.3s);
+  }
+
+  &__add-comment-btn:hover {
+    background-color: $hover-blue;
+  }
+
+  &__no-comments {
+    font-size: $font-size-base;
+    color: #6B778C;
+  }
+
+  &__comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__comment-item {
+    background-color: $white;
+    border: 1px solid $grey-light;
+    border-radius: 4px;
+    padding: $spacing-md;
+    box-shadow: 0 1px 2px rgba(9, 30, 66, 0.05);
+  }
+
+  &__comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $font-size-base;
+    margin-bottom: 0.5rem;
+  }
+
+  &__comment-author {
+    font-weight: 500;
+    color: $grey-dark;
+  }
+
+  &__comment-time {
+    font-size: $font-size-base;
+    color: #6B778C;
+  }
+
+  &__comment-body {
+    font-size: $font-size-base;
+    line-height: 1.4;
+    color: $grey-dark;
+  }
+
+  &__right {
+    width: 320px;
+    flex-shrink: 0;
+  }
+
+  &__details-card {
+    background-color: $white;
+    border-radius: 4px;
+    padding: $spacing-md;
+    @include box-shadow(rgba(149, 157, 165, 0.2), 0, 8px, 24px);
+    @include transition(transform 0.3s);
+  }
+
+  &__details-card:hover {
+    transform: translateY(-2px);
+  }
+
+  &__details-title {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-md;
+    color: $grey-dark;
+  }
+
+  &__details-form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__details-label {
+    display: flex;
+    flex-direction: column;
+    font-size: $font-size-base;
+    color: $grey-dark;
+    margin-bottom: $spacing-md;
+
+    span {
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+    }
+
+    input,
+    select {
+      padding: 0.75rem;
+      font-size: $font-size-base;
+      border: 1px solid $grey-light;
+      border-radius: 4px;
+      font-family: $font-family-base;
+    }
+  }
+
+  &__update-msg {
+    margin-top: $spacing-sm;
+    color: green;
+    font-weight: 500;
+  }
+
+  &__loading,
+  &__not-found {
+    text-align: center;
+    font-size: $font-size-lg;
+    color: #6B778C;
+    margin-top: $spacing-lg;
+  }
+}

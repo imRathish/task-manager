@@ -1,0 +1,52 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+/* Block: sign-in */
+.sign-in {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $spacing-lg;
+  }
+
+  &__title {
+    margin-bottom: $spacing-md;
+    font-size: $font-size-xl;
+    color: $grey-dark;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    width: 300px;
+  }
+
+  &__label {
+    font-size: $font-size-base;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__select {
+    padding: $spacing-sm;
+    font-size: $font-size-base;
+    margin-top: $spacing-sm;
+  }
+
+  &__button {
+    padding: $spacing-sm;
+    font-size: $font-size-base;
+    background-color: $button-bg;
+    color: $white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    @include transition(background-color 0.3s);
+  }
+
+  &__button:hover {
+    background-color: $button-bg-hover;
+  }
+}

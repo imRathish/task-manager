@@ -1,0 +1,10 @@
+// Mixin for smooth transitions
+@mixin transition($properties...) {
+    transition: $properties;
+  }
+  
+  // Mixin for box shadows
+  @mixin box-shadow($color: rgba(9, 30, 66, 0.25), $x: 0, $y: 2px, $blur: 4px) {
+    box-shadow: $x $y $blur $color;
+  }
+  
